@@ -1,0 +1,17 @@
+{
+  "roots": [
+    { "path": "~/Dev", "label": "dev" },
+    { "path": "~/work/clients", "label": "clients" }
+  ],
+  "exclude": ["private-notes", "~/Dev/archive/old-site"],
+  "projects": {
+    "my-app": { "name": "My App", "liveUrl": "https://my-app.example.com/" },
+    "clients__dashboard": { "openPort": true }
+  },
+  "browser": "Safari",
+  "editor": "vscode",
+  "assistant": "claude",
+  "modules": { "outside": true, "backup": false },
+  "port": 7777,
+  "proxyPort": 7700
+}

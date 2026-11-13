@@ -1,0 +1,8 @@
+node_modules/
+menubar/build/
+.DS_Store
+# your own notes and agent instructions, if you keep them inside the checkout
+notes/
+CLAUDE.local.md
+# the trial state folder CUSTOMIZE.md sets up before installing
+.trial/

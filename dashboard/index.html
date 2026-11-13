@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oberth · Dev Project Console</title>
+<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="shell">
+<!--sidebar-->
+<div class="body" id="body">
+  <main>
+    <div class="phead"><h1 id="view-title">Projects</h1><span id="summary" class="sum"></span><span id="ideas-sum" class="sum"></span><button class="kbar" id="kbar" title="Jump to a project or action (⌘K)">⌕ Jump to a project or action…<kbd>⌘K</kbd></button><button id="stop-all" class="btn stop" hidden>Stop all</button></div>
+    <div class="activity" id="activity" hidden></div>
+    <div class="filters" id="filters"><span class="sfilters" id="sfilters" hidden><span class="seg"><button data-sfilter="all" class="on">All</button><button data-sfilter="active">Active</button><button data-sfilter="paused">Paused</button><button data-sfilter="finished">Finished</button><button data-sfilter="idea">Ideas</button></span><span class="seg"><button data-sfilter="released">Released</button></span></span>
+      <span class="view"><label>Group <select id="group-by"><option value="kind">Kind</option><option value="status">Status</option></select></label><label>Sort <select id="sort-by"><option value="recent">Recent</option><option value="updated">Last updated</option><option value="launched">Last launched</option><option value="name">Name</option><option value="started">Started</option><option value="attention">Needs attention</option></select></label></span></div>
+    <div id="banners"></div>
+    <p id="offline" hidden>Can't reach Oberth service.</p>
+    <section id="agenda" hidden>
+      <div id="ag-needs-box"><h2>Needs you <span class="n" id="ag-count"></span></h2><div class="list" id="ag-needs"></div></div>
+      <p class="agnote" id="ag-health" hidden></p>
+      <div id="ag-look-box"><h2 class="fold" data-fold="agenda:look" tabindex="0" role="button"><span class="caret"></span>Worth a look <span class="count" id="ag-look-count"></span></h2><div class="list" id="ag-look"></div></div>
+    </section>
+    <p class="lbempty" id="ag-empty">Nothing is waiting for you.</p>
+    <div id="ideas-view" hidden>
+      <p class="ilead">Your notebook: nothing here is waiting for you.</p>
+      <form class="icapture" id="idea-capture" autocomplete="off">
+        <div class="r1"><input id="idea-title" maxlength="120" placeholder="An idea, in a few words…" aria-label="New idea"><select id="idea-for" aria-label="For"></select><button class="btn go">Add</button></div>
+        <textarea id="idea-note" rows="3" maxlength="4000" placeholder="A note or a link (optional)" hidden></textarea>
+        <span class="note"><kbd>↵</kbd> saves · <kbd>⇧↵</kbd> adds a note · also from <code>oberth idea</code>, agent sessions, a project's About tab, and the menu bar</span>
+      </form>
+      <div id="ideas-list"></div>
+    </div>
+    <section data-group="running" hidden><h2>Running <span class="count"></span></h2><div class="list"></div></section>
+    <div id="groups"></div>
+    <details data-group="hidden" hidden><summary>Hidden <span class="count"></span></summary><div class="list"></div></details>
+  </main>
+  <aside id="drawer" hidden>
+    <div class="dh"><img id="d-icon" alt=""><div class="who"><h3 id="d-name"></h3><div id="d-status" class="meta"></div></div><button class="ib" id="d-close" title="Close (Esc)">✕</button></div>
+    <div class="dacts" id="d-acts"></div>
+    <div class="tabs"><button class="tab" data-tab="about">About</button><button class="tab" data-tab="output">Output<span class="n" id="n-output"></span></button><button class="tab" data-tab="git">Git</button><button class="tab" data-tab="scripts">Scripts<span class="n" id="n-scripts"></span></button><button class="tab" data-tab="info">Info</button></div>
+    <div class="pane" id="p-output">
+      <div class="outbar"><input id="out-q" type="search" placeholder="Search output" autocomplete="off"><span id="out-n"></span><span class="seg"><button data-filter="all" class="on">All</button><button data-filter="errors">Errors <span id="n-errors"></span></button></span><button class="btn" id="out-copy">Copy</button><button class="btn" id="out-clear" title="Clear the view (the log file is kept)">Clear</button></div>
+      <pre id="term"></pre>
+    </div>
+    <div class="pane scroll" id="p-about" hidden></div>
+    <div class="pane scroll" id="p-git" hidden></div>
+    <div class="pane scroll" id="p-scripts" hidden></div>
+    <div class="pane scroll" id="p-info" hidden></div>
+  </aside>
+</div>
+</div>
+<div id="popover" hidden></div>
+<div class="veil" id="idea-veil" hidden><form class="isheet" id="idea-sheet" role="dialog" aria-label="Start an idea" autocomplete="off"></form></div>
+<div id="stmenu" class="stmenu" role="menu" hidden></div>
+<div class="veil" id="veil" hidden><div class="pal" role="dialog" aria-label="Command palette"><input id="pal-q" placeholder="A project and an action, or anything to find: dung stop, safari tab…" autocomplete="off" spellcheck="false"><ul id="pal-res"></ul><div class="pal-foot"><span><kbd>↑</kbd><kbd>↓</kbd> move</span><span><kbd>↵</kbd> run</span><span><kbd>esc</kbd> close</span><span id="pal-note"></span></div></div></div>
+<script src="/app.js"></script>
+<script src="/ideas.js"></script>
+</body>
+</html>

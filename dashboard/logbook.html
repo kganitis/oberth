@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logbook · Oberth</title>
+<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="shell">
+<!--sidebar-->
+<main class="logbook">
+  <header class="lbhead">
+    <h1>Logbook</h1>
+    <nav class="lbnav" aria-label="Week">
+      <button class="ib" id="lb-prev" title="Previous week" aria-label="Previous week">‹</button>
+      <span id="lb-range"></span>
+      <button class="ib" id="lb-next" title="Next week" aria-label="Next week">›</button>
+      <button class="later" id="lb-now" style="visibility: hidden">This week</button>
+    </nav>
+  </header>
+  <p class="agnote" id="lb-error" hidden></p>
+  <section class="lbreview" id="lb-review" hidden></section>
+  <div id="lb-week" hidden>
+    <dl class="lbtotals">
+      <div><dt>Session time</dt><dd id="lb-ms"></dd></div>
+      <div><dt>Turns</dt><dd id="lb-turns"></dd></div>
+      <div><dt>Commits</dt><dd id="lb-commits"></dd></div>
+      <div title="What the week's tokens would cost at the API's prices. A subscription bills none of it per token."><dt>At API prices</dt><dd id="lb-usd"></dd></div>
+    </dl>
+    <h2>By day</h2>
+    <div class="lbdays" id="lb-days"></div>
+    <h2>By project</h2>
+    <div class="list" id="lb-projects"></div>
+    <p class="lbnote" id="lb-note">Session time adds up the turns of your assistant's sessions, leaving out any silence over 5 minutes, so a single step that ran longer counts for less. It shows where sessions went, not hours at the keyboard. A turn counts on the day it started. The cost is what the turns' tokens (subagents' included) would cost at the API's prices: an estimate of the work's size, not a bill, since a subscription charges none of it per token.</p>
+  </div>
+  <p class="lbempty" id="lb-empty" hidden>Nothing recorded this week.</p>
+</main>
+</div>
+<script src="/logbook.js"></script>
+</body>
+</html>
